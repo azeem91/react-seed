@@ -38,3 +38,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
   - Define Constants for theme, fornt, typography
   - Add Scss
   - Seting environment specific Constants .env
+  - Redux implementation
