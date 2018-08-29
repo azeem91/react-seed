@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { List, ListItem, ListItemText } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import { AppConstants } from "../../constants";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import { GET } from '../../services/restApi';
 
 export default class CurrencyList extends Component {
   state = {
@@ -10,10 +11,17 @@ export default class CurrencyList extends Component {
   };
 
   componentDidMount() {
-    axios.get(`${AppConstants.api}tickers?symbols=ALL`).then(res => {
+    GET('tickers', { symbols: 'ALL' }).then(res => {
       const currencyList = res.data;
       this.setState({ currencyList });
-    });
+    })
+  }
+
+  formatCurrencyName = (currencySymbol) => {
+    return currencySymbol
+      .split("")
+      .slice(1, currencySymbol.length - 1)
+      .join("")
   }
 
   render() {
@@ -28,10 +36,7 @@ export default class CurrencyList extends Component {
               <Link to={`/currencyDetails/${currency[0]}`}>
                 <ListItem key={currency[0]}>
                   <ListItemText
-                    primary={currency[0]
-                      .split("")
-                      .slice(1, currency[0].length - 1)
-                      .join("")}
+                    primary={this.formatCurrencyName(currency[0])}
                     secondary={"volume : " + currency[8]}
                   />
                 </ListItem>

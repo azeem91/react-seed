@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { List, ListItem, ListItemText } from "@material-ui/core/List";
+import { GET } from '../../services/restApi';
 
 export default class CurrencyDetails extends Component {
   state = {
@@ -8,11 +7,13 @@ export default class CurrencyDetails extends Component {
   };
 
   componentDidMount() {
-    axios.get(`https://api.bitfinex.com/v2/ticker/${this.props.match.params.id}`).then(res => {
+    const { params: { id: symbol } } = this.props.match;
+    
+    GET(`ticker/${symbol}`).then(res => {
       const CurrencyDetails = res.data;
-      console.log(CurrencyDetails);
       this.setState({ CurrencyDetails });
-    });
+    })
+
   }
 
   render() {
