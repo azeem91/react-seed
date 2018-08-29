@@ -12,7 +12,7 @@ export default class CurrencyList extends Component {
 
   componentDidMount() {
     GET('tickers', { symbols: 'ALL' }).then(res => {
-      const currencyList = res.data;
+      const currencyList = res.data ? res.data : [];
       this.setState({ currencyList });
     })
   }

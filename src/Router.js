@@ -1,15 +1,15 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import CurrencyList from './modules/currencyList/CurrencyList'
-import CurrencyDetails from './modules/currencyDetails/currencyDetails';
+import CurrencyDetails from './modules/currencyDetails/currencyDetails'
 
-const Views = () => {
+const Router = () => {
   return (
     <Switch>
       <Route exact path='/' component={CurrencyList} />
-      <Route exact path='/currencyDetails/:id' component={CurrencyDetails} />
+      <Route path='/currencyDetails/:id' component={CurrencyDetails} />
     </Switch>
   )
 }
 
-export default Views
+export default Router
