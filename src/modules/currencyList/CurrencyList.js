@@ -33,8 +33,8 @@ export default class CurrencyList extends Component {
         <List>
           {this.state.currencyList.map(currency => {
             return (
-              <Link to={`/currencyDetails/${currency[0]}`}>
-                <ListItem key={currency[0]}>
+              <Link key={currency[0]} to={`/currencyDetails/${currency[0]}`}>
+                <ListItem>
                   <ListItemText
                     primary={this.formatCurrencyName(currency[0])}
                     secondary={"volume : " + currency[8]}
