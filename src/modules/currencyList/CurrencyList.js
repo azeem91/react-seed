@@ -10,11 +10,14 @@ export default class CurrencyList extends Component {
     currencyList: []
   };
 
-  componentDidMount() {
-    GET('tickers', { symbols: 'ALL' }).then(res => {
-      const currencyList = res.data ? res.data : [];
-      this.setState({ currencyList });
-    })
+  async componentDidMount() {
+    try {
+      const res = await GET('tickers', { symbols: 'ALL' })
+      this.setState({ currencyList: res.data })
+    } catch (e) {
+      console.error(e);
+      this.setState({ currencyList: [] })
+    }
   }
 
   formatCurrencyName = (currencySymbol) => {

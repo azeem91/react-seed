@@ -30,7 +30,7 @@ const makeCall = async (...data) => {
     const [method, url, params = null, baseUrl = AppConstants.api, body = null] = data;
     const fullUrl = `${baseUrl}${url}${params ? parseUrlParams(params) : ''}`;
     try {
-        const responce = await axios.get(fullUrl)
+        const responce = await axios[method](fullUrl)
         return responce;
     } catch (e) {
         console.error(e)
