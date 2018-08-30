@@ -1,3 +1,6 @@
+### `npm install or yarn install`
+
+Install packages
 
 ### `npm start`
 
