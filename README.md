@@ -35,6 +35,14 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+
+## descriptions
+
+  - `restApi.js` : Middleware for rest api calls to keep all rest call error handeling and common code in one place
+  - `constants.js` : All constans will go here e.g. Design and layout specific constants like colors, API endpoint env. specific constants will be configured with scripts
+  - All testcases, Component specific Styles/ partials are in there particular module repos. so can be tracked easily.
+  - `common` will hold all static content and all commenly used Elements
+
 ## TODO
   - Improve REST Api middleware
   - Setting Basic Theme Layout

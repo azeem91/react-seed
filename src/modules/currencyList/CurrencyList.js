@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+
+// API MW keep code clean and deal all API calls form one place
 import { GET } from '../../services/restApi';
 
 export default class CurrencyList extends Component {
